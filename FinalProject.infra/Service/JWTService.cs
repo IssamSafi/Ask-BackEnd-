@@ -36,8 +36,9 @@ namespace FinalProject.infra.Service
                 var signinCredentials = new SigningCredentials(secretKey, SecurityAlgorithms.HmacSha256);
                 var claims = new List<Claim>
                     {
-        new Claim(ClaimTypes.Name, result.User_Name),
-        new Claim(ClaimTypes.Role, result.Role_Id.ToString())
+
+             new Claim("Name", result.User_Name),
+        new Claim("Role", result.Role_Id.ToString())
     };
                 var tokeOptions = new JwtSecurityToken(
                     claims: claims,
