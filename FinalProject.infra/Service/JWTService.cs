@@ -38,7 +38,7 @@ namespace FinalProject.infra.Service
                     {
 
              new Claim("Name", result.User_Name),
-        new Claim("Role", result.Role_Id.ToString())
+                new Claim("Role", result.Role_Id.ToString())
     };
                 var tokeOptions = new JwtSecurityToken(
                     claims: claims,
