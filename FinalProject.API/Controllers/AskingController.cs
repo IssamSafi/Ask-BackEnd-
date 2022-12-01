@@ -61,20 +61,19 @@ namespace FinalProject.API.Controllers
         //    }
         //}
 
-        //[HttpGet]
-        //[Route("getuser")]
-        //public ActionResult GetAsksByUserID(int UserId)
-        //{
-        //    try
-        //    {
-        //        var list = _service.GetAll().Where(x => x.UserId == UserId);
-        //        return Ok(list);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw ex;
-        //    }
-        //}
+        [HttpGet]
+        public ActionResult GetAsksByUserID(int UserId)
+        {
+            try
+            {
+                var list = _service.GetAll().Where(x => x.UserId == UserId);
+                return Ok(list);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
     }
 }
