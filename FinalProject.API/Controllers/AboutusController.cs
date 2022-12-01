@@ -26,7 +26,7 @@ namespace FinalProject.API.Controllers
         {
             var file = Request.Form.Files[0];
             var fileName = Guid.NewGuid().ToString() + "_" + file.FileName;
-            var fullPath = Path.Combine("C:\\Users\\User\\Documents\\GitHub\\FinalProjectAngular\\src\\assets", fileName);
+            var fullPath = Path.Combine("C:\\Users\\User\\Documents\\GitHub\\FinalProjectAngular\\src\\assets\\img", fileName);
             using (var stream = new FileStream(fullPath, FileMode.Create))
             {
                 file.CopyTo(stream);
