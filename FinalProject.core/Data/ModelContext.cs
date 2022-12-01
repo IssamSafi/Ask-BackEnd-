@@ -54,7 +54,7 @@ namespace FinalProject.core.Data
                     .ValueGeneratedOnAdd()
                     .HasColumnName("ID");
 
-                entity.Property(e => e.Description)
+                entity.Property(e => e.Description_)
                     .HasMaxLength(100)
                     .IsUnicode(false)
                     .HasColumnName("DESCRIPTION_");

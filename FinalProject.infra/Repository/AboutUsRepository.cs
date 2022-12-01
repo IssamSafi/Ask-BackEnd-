@@ -22,7 +22,7 @@ namespace FinalProject.infra.Repository
         {
             var p = new DynamicParameters();
             p.Add("image_", t.Image, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("descriptionf_", t.Description, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("descriptionf_", t.Description_, dbType: DbType.String, direction: ParameterDirection.Input);
             _dbContext.Connection.Execute("Aboutus_Package.CreateAboutus", p, commandType: CommandType.StoredProcedure);
 
         }
@@ -56,7 +56,7 @@ namespace FinalProject.infra.Repository
 
             p.Add("AboutusID", t.Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("image_", t.Image, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("descriptionf", t.Description, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("descriptionf", t.Description_, dbType: DbType.String, direction: ParameterDirection.Input);
             _dbContext.Connection.Execute("Aboutus_Package.UpdateAboutus", p, commandType: CommandType.StoredProcedure);
         }
     }
