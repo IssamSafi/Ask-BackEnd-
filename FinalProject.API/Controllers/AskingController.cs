@@ -15,9 +15,12 @@ namespace FinalProject.API.Controllers
     {
 
         private readonly IService<Asking> _service;
-        public AskingController(IService<Asking> service) : base(service)
+        private readonly IService<Userf> userservice;
+
+        public AskingController(IService<Asking> service, IService<Userf> userservice) : base(service)
         {
             _service = service;
+            this.userservice=userservice;
         }
 
         //[HttpGet]
@@ -35,45 +38,34 @@ namespace FinalProject.API.Controllers
         //    }
         //}
 
-        //[HttpPost]
-        //[Route("ask")]
-        //public ActionResult TakeActionStatus(int AskId, string status)
-        //{
-        //    try
-        //    {
-        //        var AskObj = _service.GetById(AskId);
-        //        if (AskObj != null)
-        //        {
-        //            AskObj.Itsapprove = Convert.ToDecimal(status);
-        //            _service.Update(AskObj);
-
-        //            ///send email
-
-
-        //            return Ok(true);
-        //        }
-
-        //        return Ok(false);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw ex;
-        //    }
-        //}
-
-        [HttpGet]
-        public ActionResult GetAsksByUserID(int UserId)
+        [HttpPost]
+        [Route("ask")]
+        public ActionResult TakeActionStatus(int AskId,decimal status)
         {
             try
             {
-                var list = _service.GetAll().Where(x => x.UserId == UserId);
-                return Ok(list);
+                var AskObj = _service.GetById(AskId);
+                if (AskObj != null)
+                {
+                    AskObj.Itsapprove = status;
+                    _service.Update(AskObj);
+                    if (status==1)
+                    {
+                        ///send email
+                        var user = userservice.GetById(Convert.ToInt32(AskObj.UserId));
+                    }
+                    return Ok(true);
+                }
+
+                return Ok(false);
             }
             catch (Exception ex)
             {
                 throw ex;
             }
         }
+
+
 
     }
 }
