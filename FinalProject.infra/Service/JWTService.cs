@@ -1,4 +1,5 @@
 ﻿using FinalProject.core.Data;
+using FinalProject.core.DTO;
 using FinalProject.core.Repository;
 using FinalProject.core.Service;
 using Microsoft.IdentityModel.Tokens;
@@ -53,6 +54,14 @@ namespace FinalProject.infra.Service
 
         }
 
-     
+        public List<Report> Reports()
+        {
+           return _Repository.Reports();
+        }
+
+        public TotalUser totalUser()
+        {
+            return _Repository.totalUser();
+        }
     }
 }

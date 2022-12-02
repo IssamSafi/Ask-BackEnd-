@@ -1,6 +1,7 @@
 ﻿using Dapper;
 using FinalProject.core.Common;
 using FinalProject.core.Data;
+using FinalProject.core.DTO;
 using FinalProject.core.Repository;
 using System;
 using System.Collections.Generic;
@@ -26,6 +27,19 @@ namespace FinalProject.infra.Repository
             IEnumerable<Loginf> result = _dbContext.Connection.Query<Loginf>("Login_Package.User_Login", p, commandType: CommandType.StoredProcedure);
             return result.FirstOrDefault();
 
+        }
+
+        public TotalUser totalUser()
+        {
+            var result = _dbContext.Connection.Query("Login_Package.Total_User", commandType: CommandType.StoredProcedure);
+            return result.FirstOrDefault();
+
+        }
+
+        public List<Report> Reports()
+        {
+            IEnumerable<Report> result = _dbContext.Connection.Query<Report>("User_Package.Reportuser", commandType: CommandType.StoredProcedure);
+            return result.ToList();
         }
     }
 }

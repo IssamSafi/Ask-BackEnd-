@@ -1,4 +1,5 @@
 ﻿using FinalProject.core.Data;
+using FinalProject.core.DTO;
 using FinalProject.core.Service;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -33,6 +34,21 @@ namespace FinalProject.API.Controllers
                 return Ok(token);
             }
 
+        }
+
+
+        [HttpGet]
+        public List<Report> Reports()
+        {
+            return jwtservice.Reports();
+        }
+
+
+        [HttpGet]
+        [Route("Total")]
+        public TotalUser totalUser()
+        {
+            return jwtservice.totalUser();
         }
 
 
