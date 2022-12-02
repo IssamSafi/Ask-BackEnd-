@@ -48,7 +48,7 @@ public void Create(Asking t)
         public Asking GetById(int id)
         {
             var p = new DynamicParameters();
-            p.Add("homeID", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("AskigID", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
             IEnumerable<Asking> result = _dbContext.Connection.Query<Asking>("Askig_Package.GetById", p, commandType: CommandType.StoredProcedure);
             return result.FirstOrDefault();
         }
