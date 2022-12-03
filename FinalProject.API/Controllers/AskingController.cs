@@ -58,7 +58,9 @@ namespace FinalProject.API.Controllers
                     {
                         ///send email
                         ///
-                        //var user = userservice.GetById(Convert.ToInt32(AskObj.UserId));
+                        
+                        //var user = _userservice.GetById(Convert.ToInt32(AskObj.UserId));
+                        
                         MimeMessage message = new MimeMessage();
                         MailboxAddress from = new MailboxAddress(" aprrove quastion", "201810741@std-zuj.edu.jo");
                         message.From.Add(from);
