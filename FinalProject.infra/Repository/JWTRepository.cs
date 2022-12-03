@@ -3,6 +3,7 @@ using FinalProject.core.Common;
 using FinalProject.core.Data;
 using FinalProject.core.DTO;
 using FinalProject.core.Repository;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -31,7 +32,7 @@ namespace FinalProject.infra.Repository
 
         public TotalUser totalUser()
         {
-            var result = _dbContext.Connection.Query("Login_Package.Total_User", commandType: CommandType.StoredProcedure);
+              IEnumerable<TotalUser>  result  = _dbContext.Connection.Query<TotalUser>("Login_Package.Total_User", commandType: CommandType.StoredProcedure);
             return result.FirstOrDefault();
 
         }
