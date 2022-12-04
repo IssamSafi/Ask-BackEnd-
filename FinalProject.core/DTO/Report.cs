@@ -9,6 +9,7 @@ namespace FinalProject.core.DTO
         public string Fname { get; set; }
         public string Lname { get; set; }
         public decimal? Itsapprove { get; set; }
+        public DateTime? Askingdate { get; set; }
         public string Messege { get; set; }
     }
 }
