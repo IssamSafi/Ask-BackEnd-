@@ -22,7 +22,9 @@ namespace FinalProject.infra.Repository
             var p = new DynamicParameters();
             p.Add("welcomeiamge", t.Welcome_Iamge, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("descriptionf_", t.Description_, dbType: DbType.String, direction: ParameterDirection.Input);
-
+            p.Add("phone_", t.Phone, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("email_", t.Email, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("location_", t.Location, dbType: DbType.String, direction: ParameterDirection.Input);
             _dbContext.Connection.Execute("Home_Package.CreateHome", p, commandType: CommandType.StoredProcedure);
 
         }
@@ -54,9 +56,12 @@ namespace FinalProject.infra.Repository
         {
             var p = new DynamicParameters();
 
-            p.Add("ID", t.Home_id, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("ID", t.Home_Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("image", t.Welcome_Iamge, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("descriptionf", t.Description_, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("phone_", t.Phone, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("email_", t.Email, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("location_", t.Location, dbType: DbType.String, direction: ParameterDirection.Input);
 
             _dbContext.Connection.Execute("Home_Package.UpdateHome", p, commandType: CommandType.StoredProcedure);
         }

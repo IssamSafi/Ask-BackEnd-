@@ -10,7 +10,8 @@ namespace FinalProject.core.Data
         public decimal Id { get; set; }
         public string Name { get; set; }
         public string Messege { get; set; }
-        public decimal? UserId { get; set; }
+        public decimal? User_Id { get; set; }
+        public decimal Itsapprove { get; set; }
 
         public virtual Userf User { get; set; }
     }

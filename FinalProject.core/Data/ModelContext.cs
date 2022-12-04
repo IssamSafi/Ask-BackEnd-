@@ -16,17 +16,16 @@ namespace FinalProject.core.Data
             : base(options)
         {
         }
+
         public virtual DbSet<Aboutusf> Aboutusfs { get; set; }
+
         public virtual DbSet<Asking> Askings { get; set; }
         public virtual DbSet<Categoryf> Categoryfs { get; set; }
         public virtual DbSet<CommonQuestion> CommonQuestions { get; set; }
-
         public virtual DbSet<Contactusf> Contactusfs { get; set; }
         public virtual DbSet<Homef> Homefs { get; set; }
         public virtual DbSet<Loginf> Loginfs { get; set; }
-
         public virtual DbSet<Rolef> Rolefs { get; set; }
- 
         public virtual DbSet<Testimonialf> Testimonialves { get; set; }
         public virtual DbSet<Userf> Userves { get; set; }
 
@@ -55,15 +54,16 @@ namespace FinalProject.core.Data
                     .HasColumnName("ID");
 
                 entity.Property(e => e.Description_)
-                    .HasMaxLength(100)
+                    .HasMaxLength(300)
                     .IsUnicode(false)
                     .HasColumnName("DESCRIPTION_");
 
                 entity.Property(e => e.Image)
-                    .HasMaxLength(100)
+                    .HasMaxLength(200)
                     .IsUnicode(false)
                     .HasColumnName("IMAGE");
             });
+
 
             modelBuilder.Entity<Asking>(entity =>
             {
@@ -74,6 +74,10 @@ namespace FinalProject.core.Data
                     .ValueGeneratedOnAdd()
                     .HasColumnName("ID");
 
+                entity.Property(e => e.Askingdate)
+                    .HasColumnType("DATE")
+                    .HasColumnName("ASKINGDATE");
+
                 entity.Property(e => e.Itsapprove)
                     .HasColumnType("NUMBER")
                     .HasColumnName("ITSAPPROVE");
@@ -83,18 +87,16 @@ namespace FinalProject.core.Data
                     .IsUnicode(false)
                     .HasColumnName("MESSEGE");
 
-                entity.Property(e => e.UserId)
+                entity.Property(e => e.User_Id)
                     .HasColumnType("NUMBER")
                     .HasColumnName("USER_ID");
 
                 entity.HasOne(d => d.User)
                     .WithMany(p => p.Askings)
-                    .HasForeignKey(d => d.UserId)
+                    .HasForeignKey(d => d.User_Id)
                     .OnDelete(DeleteBehavior.SetNull)
                     .HasConstraintName("ASKINGFK");
             });
-
-  
 
             modelBuilder.Entity<Categoryf>(entity =>
             {
@@ -105,13 +107,13 @@ namespace FinalProject.core.Data
                     .ValueGeneratedOnAdd()
                     .HasColumnName("ID");
 
-                entity.Property(e => e.category_name)
+                entity.Property(e => e.Category_Name)
                     .HasMaxLength(50)
                     .IsUnicode(false)
                     .HasColumnName("CATEGORY_NAME");
 
-                entity.Property(e => e.image_path)
-                    .HasMaxLength(50)
+                entity.Property(e => e.Image_Path)
+                    .HasMaxLength(200)
                     .IsUnicode(false)
                     .HasColumnName("IMAGE_PATH");
             });
@@ -141,46 +143,54 @@ namespace FinalProject.core.Data
                     .ValueGeneratedOnAdd()
                     .HasColumnName("ID");
 
-                entity.Property(e => e.Email)
+                entity.Property(e => e.Messege)
                     .HasMaxLength(200)
                     .IsUnicode(false)
-                    .HasColumnName("EMAIL");
+                    .HasColumnName("MESSEGE");
 
-                entity.Property(e => e.Locationc)
-                    .HasMaxLength(200)
-                    .IsUnicode(false)
-                    .HasColumnName("LOCATIONC");
-
-                entity.Property(e => e.Phone)
+                entity.Property(e => e.Name)
                     .HasMaxLength(50)
                     .IsUnicode(false)
-                    .HasColumnName("PHONE");
+                    .HasColumnName("NAME");
             });
-
 
             modelBuilder.Entity<Homef>(entity =>
             {
-                entity.HasKey(e => e.Home_id)
+                entity.HasKey(e => e.Home_Id)
                     .HasName("SYS_C00297880");
 
                 entity.ToTable("HOMEF");
 
-                entity.Property(e => e.Home_id)
+                entity.Property(e => e.Home_Id)
                     .HasColumnType("NUMBER")
                     .ValueGeneratedOnAdd()
                     .HasColumnName("HOME_ID");
 
                 entity.Property(e => e.Description_)
-                    .HasMaxLength(200)
+                    .HasMaxLength(300)
                     .IsUnicode(false)
                     .HasColumnName("DESCRIPTION_");
+
+                entity.Property(e => e.Email)
+                    .HasMaxLength(50)
+                    .IsUnicode(false)
+                    .HasColumnName("EMAIL");
+
+                entity.Property(e => e.Location)
+                    .HasMaxLength(50)
+                    .IsUnicode(false)
+                    .HasColumnName("LOCATION");
+
+                entity.Property(e => e.Phone)
+                    .HasMaxLength(50)
+                    .IsUnicode(false)
+                    .HasColumnName("PHONE");
 
                 entity.Property(e => e.Welcome_Iamge)
                     .HasMaxLength(200)
                     .IsUnicode(false)
                     .HasColumnName("WELCOME_IAMGE");
             });
-
 
             modelBuilder.Entity<Loginf>(entity =>
             {
@@ -222,7 +232,6 @@ namespace FinalProject.core.Data
                     .HasConstraintName("USERRFK");
             });
 
-
             modelBuilder.Entity<Rolef>(entity =>
             {
                 entity.ToTable("ROLEF");
@@ -232,12 +241,11 @@ namespace FinalProject.core.Data
                     .ValueGeneratedOnAdd()
                     .HasColumnName("ID");
 
-                entity.Property(e => e.RoleName)
+                entity.Property(e => e.Role_Name)
                     .HasMaxLength(20)
                     .IsUnicode(false)
                     .HasColumnName("ROLE_NAME");
             });
-
 
             modelBuilder.Entity<Testimonialf>(entity =>
             {
@@ -248,23 +256,28 @@ namespace FinalProject.core.Data
                     .ValueGeneratedOnAdd()
                     .HasColumnName("ID");
 
+                entity.Property(e => e.Itsapprove)
+                    .HasColumnType("NUMBER")
+                    .HasColumnName("ITSAPPROVE")
+                    .HasDefaultValueSql("0 ");
+
                 entity.Property(e => e.Messege)
-                    .HasMaxLength(20)
+                    .HasMaxLength(200)
                     .IsUnicode(false)
                     .HasColumnName("MESSEGE");
 
                 entity.Property(e => e.Name)
-                    .HasMaxLength(20)
+                    .HasMaxLength(50)
                     .IsUnicode(false)
                     .HasColumnName("NAME");
 
-                entity.Property(e => e.UserId)
+                entity.Property(e => e.User_Id)
                     .HasColumnType("NUMBER")
                     .HasColumnName("USER_ID");
 
                 entity.HasOne(d => d.User)
                     .WithMany(p => p.Testimonialves)
-                    .HasForeignKey(d => d.UserId)
+                    .HasForeignKey(d => d.User_Id)
                     .OnDelete(DeleteBehavior.SetNull)
                     .HasConstraintName("TESTIM");
             });
@@ -288,8 +301,8 @@ namespace FinalProject.core.Data
                     .IsUnicode(false)
                     .HasColumnName("FNAME");
 
-                entity.Property(e => e.ImagePath)
-                    .HasMaxLength(100)
+                entity.Property(e => e.Image_Path)
+                    .HasMaxLength(200)
                     .IsUnicode(false)
                     .HasColumnName("IMAGE_PATH");
 

@@ -25,7 +25,7 @@ namespace FinalProject.infra.Repository
             p.Add("lastname", t.Lname, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("Phone_", t.Phone, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("email_", t.Email, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("image", t.ImagePath, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("image", t.Image_Path, dbType: DbType.String, direction: ParameterDirection.Input);
             _dbContext.Connection.Execute("User_Package.CreateUser", p, commandType: CommandType.StoredProcedure);
 
         }
@@ -62,7 +62,7 @@ namespace FinalProject.infra.Repository
             p.Add("lastname", t.Lname, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("Phone_", t.Phone, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("email_", t.Email, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("image", t.ImagePath, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("image", t.Image_Path, dbType: DbType.String, direction: ParameterDirection.Input);
             _dbContext.Connection.Execute("User_Package.UpdateUser", p, commandType: CommandType.StoredProcedure);
         }
 

@@ -25,6 +25,10 @@ namespace FinalProject.infra.Repository
             var p = new DynamicParameters();
             p.Add("name_ ", t.Name, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("messege_", t.Messege, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("userid ", t.User_Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("approve", t.Itsapprove, dbType: DbType.Int32, direction: ParameterDirection.Input);
+
+
 
             _dbContext.Connection.Execute("testmonial_Package.CreateTestmonial", p, commandType: CommandType.StoredProcedure);
 
@@ -59,7 +63,8 @@ namespace FinalProject.infra.Repository
             p.Add("TID", t.Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("name_ ", t.Name, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("messege_", t.Messege, dbType: DbType.String, direction: ParameterDirection.Input);
-
+            p.Add("userid ", t.User_Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("approve", t.Itsapprove, dbType: DbType.String, direction: ParameterDirection.Input);
             _dbContext.Connection.Execute("testmonial_Package.UpdateTestmonial", p, commandType: CommandType.StoredProcedure);
         }
     }

@@ -19,7 +19,7 @@ namespace FinalProject.core.Data
         public string Lname { get; set; }
         public string Phone { get; set; }
         public string Email { get; set; }
-        public string ImagePath { get; set; }
+        public string Image_Path { get; set; }
 
         public virtual ICollection<Asking> Askings { get; set; }
         public virtual ICollection<Loginf> Loginfs { get; set; }

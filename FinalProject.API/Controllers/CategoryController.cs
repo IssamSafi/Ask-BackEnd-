@@ -33,7 +33,7 @@ namespace FinalProject.API.Controllers
                 file.CopyTo(stream);
             }
             Categoryf item = new Categoryf();
-            item.image_path = fileName;
+            item.Image_Path = fileName;
             return item;
         }
 

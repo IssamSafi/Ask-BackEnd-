@@ -13,7 +13,7 @@ namespace FinalProject.core.Data
         }
 
         public decimal Id { get; set; }
-        public string RoleName { get; set; }
+        public string Role_Name { get; set; }
 
         public virtual ICollection<Loginf> Loginfs { get; set; }
     }

@@ -21,9 +21,8 @@ namespace FinalProject.infra.Repository
         public void Create(Contactusf t)
         {
             var p = new DynamicParameters();
-            p.Add("phone_", t.Phone, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("email_", t.Email, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("location_", t.Locationc, dbType: DbType.String, direction: ParameterDirection.Input);
+         p.Add("messegee", t.Messege, dbType: DbType.String, direction: ParameterDirection.Input);
+           p.Add("namee", t.Name, dbType: DbType.String, direction: ParameterDirection.Input);
             _dbContext.Connection.Execute("contactus_Package.Createcontactus", p, commandType: CommandType.StoredProcedure);
 
         }
@@ -56,9 +55,8 @@ namespace FinalProject.infra.Repository
             var p = new DynamicParameters();
 
             p.Add("contactID", t.Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            p.Add("phone_", t.Phone, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("email_", t.Email, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("location_", t.Locationc, dbType: DbType.String, direction: ParameterDirection.Input);
+              p.Add("messegee", t.Messege, dbType: DbType.String, direction: ParameterDirection.Input);
+             p.Add("namee", t.Name, dbType: DbType.String, direction: ParameterDirection.Input);
 
             _dbContext.Connection.Execute("contactus_Package.Updatecontactus", p, commandType: CommandType.StoredProcedure);
         }

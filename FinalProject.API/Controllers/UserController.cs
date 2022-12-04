@@ -33,7 +33,7 @@ namespace FinalProject.API.Controllers
                 file.CopyTo(stream);
             }
             Userf item = new Userf ();
-            item.ImagePath = fileName;
+            item.Image_Path = fileName;
             return item;
         }
 

@@ -21,8 +21,8 @@ namespace FinalProject.infra.Repository
         public void Create(Categoryf t)
         {
             var p = new DynamicParameters();
-            p.Add("cname", t.category_name, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("image", t.image_path, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("cname", t.Category_Name, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("image", t.Image_Path, dbType: DbType.String, direction: ParameterDirection.Input);
 
 
 
@@ -61,8 +61,8 @@ namespace FinalProject.infra.Repository
             var p = new DynamicParameters();
 
             p.Add("categoryID", t.Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            p.Add("cname", t.category_name, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("image", t.image_path, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("cname", t.Category_Name, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("image", t.Image_Path, dbType: DbType.String, direction: ParameterDirection.Input);
 
             _dbContext.Connection.Execute("Category_Package.UpdateCategory", p, commandType: CommandType.StoredProcedure);
         }
