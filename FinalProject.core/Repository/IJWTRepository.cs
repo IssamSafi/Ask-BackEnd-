@@ -10,7 +10,7 @@ namespace FinalProject.core.Repository
     {
         Loginf Auth(Loginf login);
         List<Report> Reports();
-        TotalUser totalUser();
+        List<TotalUser>  totalUser();
 
     }
 }

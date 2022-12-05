@@ -59,7 +59,7 @@ namespace FinalProject.infra.Service
            return _Repository.Reports();
         }
 
-        public TotalUser totalUser()
+        public List<TotalUser>  totalUser()
         {
             return _Repository.totalUser();
         }

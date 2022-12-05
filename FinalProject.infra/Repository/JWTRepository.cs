@@ -30,16 +30,17 @@ namespace FinalProject.infra.Repository
 
         }
 
-        public TotalUser totalUser()
-        {
-              IEnumerable<TotalUser>  result  = _dbContext.Connection.Query<TotalUser>("Login_Package.Total_User", commandType: CommandType.StoredProcedure);
-            return result.FirstOrDefault();
-
-        }
+   
 
         public List<Report> Reports()
         {
             IEnumerable<Report> result = _dbContext.Connection.Query<Report>("User_Package.Reportuser", commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
+
+        List<TotalUser> IJWTRepository.totalUser()
+        {
+            IEnumerable<TotalUser> result = _dbContext.Connection.Query<TotalUser>("Login_Package.Total_User", commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
     }
