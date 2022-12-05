@@ -46,7 +46,7 @@ namespace FinalProject.API.Controllers
 
         [HttpGet]
         [Route("Total")]
-        public TotalUser totalUser()
+        public List<TotalUser> totalUser()
         {
             return jwtservice.totalUser();
         }

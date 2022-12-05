@@ -10,7 +10,7 @@ namespace FinalProject.core.Service
     {
         string Auth(Loginf login);
          List<Report> Reports();
-        TotalUser totalUser();
+        List<TotalUser> totalUser();
 
     }
 }
