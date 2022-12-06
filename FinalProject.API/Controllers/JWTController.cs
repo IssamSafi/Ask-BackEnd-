@@ -51,6 +51,13 @@ namespace FinalProject.API.Controllers
             return jwtservice.totalUser();
         }
 
+        [HttpGet]
+        [Route("Testmonial")]
+        public List<Testmonial> testmonials()
+        {
+            return jwtservice.testmonials();
+        }
+
 
 
     }

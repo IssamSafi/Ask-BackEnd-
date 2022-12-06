@@ -38,6 +38,12 @@ namespace FinalProject.infra.Repository
             return result.ToList();
         }
 
+        public List<Testmonial> testmonials()
+        {
+            IEnumerable<Testmonial> result = _dbContext.Connection.Query<Testmonial>("User_Package.ShowTestmonial", commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
+
         List<TotalUser> IJWTRepository.totalUser()
         {
             IEnumerable<TotalUser> result = _dbContext.Connection.Query<TotalUser>("Login_Package.Total_User", commandType: CommandType.StoredProcedure);
