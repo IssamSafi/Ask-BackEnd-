@@ -12,5 +12,7 @@ namespace FinalProject.core.Service
          List<Report> Reports();
         List<TotalUser> totalUser();
 
+        List<Testmonial> testmonials();
+
     }
 }

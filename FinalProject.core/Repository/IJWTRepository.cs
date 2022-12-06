@@ -11,6 +11,7 @@ namespace FinalProject.core.Repository
         Loginf Auth(Loginf login);
         List<Report> Reports();
         List<TotalUser>  totalUser();
+        List<Testmonial> testmonials();
 
     }
 }

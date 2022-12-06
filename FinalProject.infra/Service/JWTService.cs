@@ -59,6 +59,11 @@ namespace FinalProject.infra.Service
            return _Repository.Reports();
         }
 
+        public List<Testmonial> testmonials()
+        {
+            return _Repository.testmonials();
+        }
+
         public List<TotalUser>  totalUser()
         {
             return _Repository.totalUser();
