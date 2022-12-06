@@ -83,7 +83,7 @@ namespace FinalProject.core.Data
                     .HasColumnName("ITSAPPROVE");
 
                 entity.Property(e => e.Messege)
-                    .HasMaxLength(20)
+                    .HasMaxLength(200)
                     .IsUnicode(false)
                     .HasColumnName("MESSEGE");
 
