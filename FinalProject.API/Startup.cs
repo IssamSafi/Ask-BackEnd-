@@ -87,7 +87,8 @@ namespace FinalProject.API
             services.AddScoped<IRepository<CommonQuestion>, CommonQuestionRepository>();
             services.AddScoped<IService<CommonQuestion>, CommonQuestionService>();
 
-
+            services.AddScoped<IRepository<Comment>, CommentsRepository>();
+            services.AddScoped<IService<Comment>, CommentService>();
 
             services.AddControllers();
         }

@@ -10,6 +10,7 @@ namespace FinalProject.core.Data
         public Userf()
         {
             Askings = new HashSet<Asking>();
+            Comments = new HashSet<Comment>();
             Loginfs = new HashSet<Loginf>();
             Testimonialves = new HashSet<Testimonialf>();
         }
@@ -22,6 +23,7 @@ namespace FinalProject.core.Data
         public string Image_Path { get; set; }
 
         public virtual ICollection<Asking> Askings { get; set; }
+        public virtual ICollection<Comment> Comments { get; set; }
         public virtual ICollection<Loginf> Loginfs { get; set; }
         public virtual ICollection<Testimonialf> Testimonialves { get; set; }
     }
