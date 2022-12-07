@@ -7,6 +7,11 @@ namespace FinalProject.core.Data
 {
     public partial class Asking
     {
+        public Asking()
+        {
+            Comments = new HashSet<Comment>();
+        }
+
         public decimal Id { get; set; }
         public decimal Itsapprove { get; set; }
         public string Messege { get; set; }
@@ -16,5 +21,6 @@ namespace FinalProject.core.Data
 
         public virtual Categoryf Category { get; set; }
         public virtual Userf User { get; set; }
+        public virtual ICollection<Comment> Comments { get; set; }
     }
 }

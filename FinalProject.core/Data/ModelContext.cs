@@ -20,11 +20,11 @@ namespace FinalProject.core.Data
         public virtual DbSet<Aboutusf> Aboutusfs { get; set; }
         public virtual DbSet<Asking> Askings { get; set; }
         public virtual DbSet<Categoryf> Categoryfs { get; set; }
+        public virtual DbSet<Comment> Comments { get; set; }
         public virtual DbSet<CommonQuestion> CommonQuestions { get; set; }
         public virtual DbSet<Contactusf> Contactusfs { get; set; }
         public virtual DbSet<Homef> Homefs { get; set; }
         public virtual DbSet<Loginf> Loginfs { get; set; }
-
         public virtual DbSet<Rolef> Rolefs { get; set; }
         public virtual DbSet<Testimonialf> Testimonialves { get; set; }
         public virtual DbSet<Userf> Userves { get; set; }
@@ -42,7 +42,6 @@ namespace FinalProject.core.Data
         {
             modelBuilder.HasDefaultSchema("TAH14_USER49")
                 .HasAnnotation("Relational:Collation", "USING_NLS_COMP");
-
 
             modelBuilder.Entity<Aboutusf>(entity =>
             {
@@ -63,7 +62,6 @@ namespace FinalProject.core.Data
                     .IsUnicode(false)
                     .HasColumnName("IMAGE");
             });
-
 
             modelBuilder.Entity<Asking>(entity =>
             {
@@ -107,7 +105,6 @@ namespace FinalProject.core.Data
                     .HasConstraintName("ASKINGFK");
             });
 
-
             modelBuilder.Entity<Categoryf>(entity =>
             {
                 entity.ToTable("CATEGORYF");
@@ -128,6 +125,41 @@ namespace FinalProject.core.Data
                     .HasColumnName("IMAGE_PATH");
             });
 
+            modelBuilder.Entity<Comment>(entity =>
+            {
+                entity.ToTable("COMMENTS");
+
+                entity.Property(e => e.Id)
+                    .HasColumnType("NUMBER")
+                    .ValueGeneratedOnAdd()
+                    .HasColumnName("ID");
+
+                entity.Property(e => e.Askid)
+                    .HasColumnType("NUMBER")
+                    .HasColumnName("ASKID");
+
+                entity.Property(e => e.Commentt)
+                    .HasMaxLength(200)
+                    .IsUnicode(false)
+                    .HasColumnName("COMMENTT");
+
+                entity.Property(e => e.Userid)
+                    .HasColumnType("NUMBER")
+                    .HasColumnName("USERID");
+
+                entity.HasOne(d => d.Ask)
+                    .WithMany(p => p.Comments)
+                    .HasForeignKey(d => d.Askid)
+                    .OnDelete(DeleteBehavior.Cascade)
+                    .HasConstraintName("ASKED");
+
+                entity.HasOne(d => d.User)
+                    .WithMany(p => p.Comments)
+                    .HasForeignKey(d => d.Userid)
+                    .OnDelete(DeleteBehavior.Cascade)
+                    .HasConstraintName("USEFK");
+            });
+
             modelBuilder.Entity<CommonQuestion>(entity =>
             {
                 entity.ToTable("COMMON_QUESTION");
@@ -142,7 +174,6 @@ namespace FinalProject.core.Data
                     .IsUnicode(false)
                     .HasColumnName("QUESTION");
             });
-
 
             modelBuilder.Entity<Contactusf>(entity =>
             {
@@ -202,7 +233,6 @@ namespace FinalProject.core.Data
                     .HasColumnName("WELCOME_IAMGE");
             });
 
-
             modelBuilder.Entity<Loginf>(entity =>
             {
                 entity.ToTable("LOGINF");
@@ -258,7 +288,6 @@ namespace FinalProject.core.Data
                     .HasColumnName("ROLE_NAME");
             });
 
-  
             modelBuilder.Entity<Testimonialf>(entity =>
             {
                 entity.ToTable("TESTIMONIALF");
