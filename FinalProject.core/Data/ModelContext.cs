@@ -18,13 +18,13 @@ namespace FinalProject.core.Data
         }
 
         public virtual DbSet<Aboutusf> Aboutusfs { get; set; }
-
         public virtual DbSet<Asking> Askings { get; set; }
         public virtual DbSet<Categoryf> Categoryfs { get; set; }
         public virtual DbSet<CommonQuestion> CommonQuestions { get; set; }
         public virtual DbSet<Contactusf> Contactusfs { get; set; }
         public virtual DbSet<Homef> Homefs { get; set; }
         public virtual DbSet<Loginf> Loginfs { get; set; }
+
         public virtual DbSet<Rolef> Rolefs { get; set; }
         public virtual DbSet<Testimonialf> Testimonialves { get; set; }
         public virtual DbSet<Userf> Userves { get; set; }
@@ -78,6 +78,10 @@ namespace FinalProject.core.Data
                     .HasColumnType("DATE")
                     .HasColumnName("ASKINGDATE");
 
+                entity.Property(e => e.Category_Id)
+                    .HasColumnType("NUMBER")
+                    .HasColumnName("CATEGORY_ID");
+
                 entity.Property(e => e.Itsapprove)
                     .HasColumnType("NUMBER")
                     .HasColumnName("ITSAPPROVE");
@@ -91,12 +95,18 @@ namespace FinalProject.core.Data
                     .HasColumnType("NUMBER")
                     .HasColumnName("USER_ID");
 
+                entity.HasOne(d => d.Category)
+                    .WithMany(p => p.Askings)
+                    .HasForeignKey(d => d.Category_Id)
+                    .HasConstraintName("ASKING_FK1");
+
                 entity.HasOne(d => d.User)
                     .WithMany(p => p.Askings)
                     .HasForeignKey(d => d.User_Id)
                     .OnDelete(DeleteBehavior.SetNull)
                     .HasConstraintName("ASKINGFK");
             });
+
 
             modelBuilder.Entity<Categoryf>(entity =>
             {
@@ -192,6 +202,7 @@ namespace FinalProject.core.Data
                     .HasColumnName("WELCOME_IAMGE");
             });
 
+
             modelBuilder.Entity<Loginf>(entity =>
             {
                 entity.ToTable("LOGINF");
@@ -247,6 +258,7 @@ namespace FinalProject.core.Data
                     .HasColumnName("ROLE_NAME");
             });
 
+  
             modelBuilder.Entity<Testimonialf>(entity =>
             {
                 entity.ToTable("TESTIMONIALF");
@@ -316,7 +328,6 @@ namespace FinalProject.core.Data
                     .IsUnicode(false)
                     .HasColumnName("PHONE");
             });
-
 
             modelBuilder.HasSequence("NEWVALUE").IncrementsBy(2);
 
