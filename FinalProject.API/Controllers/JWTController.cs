@@ -63,6 +63,14 @@ namespace FinalProject.API.Controllers
         }
 
 
+        [HttpPost]
+        [Route("Search")]
+
+        public List<SearchUser> searchUsers(SearchUser t)
+        {
+            return jwtservice.searchUsers(t);
+        }
+
 
 
 
