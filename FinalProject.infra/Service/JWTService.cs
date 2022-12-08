@@ -60,6 +60,11 @@ namespace FinalProject.infra.Service
            return _Repository.Reports();
         }
 
+        public void Rigesters(Rigester register)
+        {
+             _Repository.Rigesters(register);
+        }
+
         public List<SearchUser> searchUsers(SearchUser t)
         {
             return _Repository.searchUsers(t);

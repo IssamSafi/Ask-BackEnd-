@@ -14,5 +14,9 @@ namespace FinalProject.core.Repository
         List<Testmonial> testmonials();
         List<SearchUser> searchUsers(SearchUser search);
 
+
+        void Rigesters(Rigester register);
+       
+
     }
 }
