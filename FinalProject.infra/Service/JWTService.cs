@@ -60,6 +60,11 @@ namespace FinalProject.infra.Service
            return _Repository.Reports();
         }
 
+        public List<SearchUser> searchUsers(SearchUser t)
+        {
+            return _Repository.searchUsers(t);
+        }
+
         public List<Testmonial> testmonials()
         {
             return _Repository.testmonials();
@@ -69,5 +74,7 @@ namespace FinalProject.infra.Service
         {
             return _Repository.totalUser();
         }
+
+   
     }
 }

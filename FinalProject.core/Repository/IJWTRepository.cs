@@ -12,6 +12,7 @@ namespace FinalProject.core.Repository
         List<Report> Reports();
         List<TotalUser>  totalUser();
         List<Testmonial> testmonials();
+        List<SearchUser> searchUsers(SearchUser search);
 
     }
 }
