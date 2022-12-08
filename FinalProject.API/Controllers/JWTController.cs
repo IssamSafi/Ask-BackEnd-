@@ -71,6 +71,13 @@ namespace FinalProject.API.Controllers
             return jwtservice.searchUsers(t);
         }
 
+        [HttpPost]
+        [Route("Rigester")]
+        public void Rigesters(Rigester register)
+        {
+            jwtservice.Rigesters(register);
+        }
+
 
 
 

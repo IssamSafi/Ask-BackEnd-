@@ -16,6 +16,8 @@ namespace FinalProject.core.Service
 
         List<SearchUser> searchUsers(SearchUser t);
 
+        void Rigesters(Rigester register);
+
 
     }
 }

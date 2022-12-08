@@ -38,6 +38,17 @@ namespace FinalProject.infra.Repository
             return result.ToList();
         }
 
+        public void Rigesters(Rigester register)
+        {
+            var p = new DynamicParameters();
+            p.Add("firstname", register.Fname, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("lastname", register.Lname, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("Email", register.User_Name, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("PASS ", register.Password, dbType: DbType.String, direction: ParameterDirection.Input);
+            _dbContext.Connection.Execute("Login_Package.Rigister", p, commandType: CommandType.StoredProcedure);
+
+        }
+
         public List<SearchUser> searchUsers(SearchUser search)
         {
             var p = new DynamicParameters();
@@ -51,6 +62,8 @@ namespace FinalProject.infra.Repository
             IEnumerable<Testmonial> result = _dbContext.Connection.Query<Testmonial>("User_Package.ShowTestmonial", commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
+
+     
 
         List<TotalUser> IJWTRepository.totalUser()
         {
