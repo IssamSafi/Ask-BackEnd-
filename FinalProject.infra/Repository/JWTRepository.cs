@@ -30,7 +30,11 @@ namespace FinalProject.infra.Repository
 
         }
 
-   
+        public List<Chart> charts()
+        {
+            IEnumerable<Chart> result = _dbContext.Connection.Query<Chart>("Category_Package.Chart", commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
 
         public List<Report> Reports()
         {

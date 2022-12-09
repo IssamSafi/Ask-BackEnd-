@@ -63,7 +63,8 @@ namespace FinalProject.API.Controllers
         }
 
 
-        [HttpPost]
+
+        [HttpGet]
         [Route("Search")]
 
         public List<SearchUser> searchUsers(SearchUser t)
@@ -78,8 +79,12 @@ namespace FinalProject.API.Controllers
             jwtservice.Rigesters(register);
         }
 
-
-
+        [HttpGet]
+        [Route("chart")]
+        public List<Chart> charts()
+        {
+            return jwtservice.charts();
+        }
 
     }
 }
