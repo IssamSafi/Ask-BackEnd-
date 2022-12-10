@@ -70,9 +70,9 @@ namespace FinalProject.infra.Service
              _Repository.Rigesters(register);
         }
 
-        public List<SearchUser> searchUsers(SearchUser t)
+        public List<SearchUser> searchUsers(String search)
         {
-            return _Repository.searchUsers(t);
+            return _Repository.searchUsers(search);
         }
 
         public List<Testmonial> testmonials()
