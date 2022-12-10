@@ -72,6 +72,17 @@ namespace FinalProject.API.Controllers
             return jwtservice.searchUsers(search);
         }
 
+
+        [HttpGet]
+        [Route("AllUserSearch")]
+        public List<AllUserSearch> allUserSearches()
+        {
+            return jwtservice.allUserSearches();
+        }
+
+
+
+
         [HttpPost]
         [Route("Rigester")]
         public void Rigesters(Rigester register)

@@ -20,6 +20,12 @@ namespace FinalProject.infra.Repository
             _dbContext = dbContext;
         }
 
+        public List<AllUserSearch> allUserSearches()
+        {
+            IEnumerable<AllUserSearch> result = _dbContext.Connection.Query<AllUserSearch>("User_Package.AllUserSearch", commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
+
         public Loginf Auth(Loginf login)
         {
             var p = new DynamicParameters();

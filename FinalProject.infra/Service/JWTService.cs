@@ -23,7 +23,12 @@ namespace FinalProject.infra.Service
             _Repository = Repository;
         }
 
-       public string Auth(Loginf login)
+        public List<AllUserSearch> allUserSearches()
+        {
+            return _Repository.allUserSearches();
+        }
+
+        public string Auth(Loginf login)
 
         {
             var result = _Repository.Auth(login);
