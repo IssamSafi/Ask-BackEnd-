@@ -55,6 +55,11 @@ namespace FinalProject.infra.Service
 
         }
 
+        public List<Chart> charts()
+        {
+            return _Repository.charts();
+        }
+
         public List<Report> Reports()
         {
            return _Repository.Reports();

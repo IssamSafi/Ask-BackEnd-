@@ -13,7 +13,7 @@ namespace FinalProject.core.Repository
         List<TotalUser>  totalUser();
         List<Testmonial> testmonials();
         List<SearchUser> searchUsers(SearchUser search);
-
+        List<Chart> charts();
 
         void Rigesters(Rigester register);
        
