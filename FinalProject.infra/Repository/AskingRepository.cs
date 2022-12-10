@@ -23,7 +23,7 @@ public void Create(Asking t)
             var p = new DynamicParameters();
             p.Add("approve", t.Itsapprove, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("messege_", t.Messege, dbType: DbType.String, direction: ParameterDirection.Input);
-           p.Add("Datee", t.Askingdate, dbType: DbType.Date, direction: ParameterDirection.Input);
+           p.Add("Datee", DateTime.Now, dbType: DbType.Date, direction: ParameterDirection.Input);
             p.Add("CatID", t.Category_Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add(" userid", t.User_Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
 
