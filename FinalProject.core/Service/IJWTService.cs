@@ -14,7 +14,7 @@ namespace FinalProject.core.Service
 
         List<Testmonial> testmonials();
 
-        List<SearchUser> searchUsers(SearchUser t);
+        List<SearchUser> searchUsers(String search);
         List<Chart> charts();
         void Rigesters(Rigester register);
 

@@ -65,11 +65,11 @@ namespace FinalProject.API.Controllers
 
 
         [HttpGet]
-        [Route("Search")]
+        [Route("Search/{search}")]
 
-        public List<SearchUser> searchUsers(SearchUser t)
+        public List<SearchUser> searchUsers(String search)
         {
-            return jwtservice.searchUsers(t);
+            return jwtservice.searchUsers(search);
         }
 
         [HttpPost]

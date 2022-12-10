@@ -53,10 +53,10 @@ namespace FinalProject.infra.Repository
 
         }
 
-        public List<SearchUser> searchUsers(SearchUser search)
+        public List<SearchUser> searchUsers(String search)
         {
             var p = new DynamicParameters();
-            p.Add("firstname ", search.Fname, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("firstname ", search, dbType: DbType.String, direction: ParameterDirection.Input);
             var result = _dbContext.Connection.Query<SearchUser>("User_Package.SearchUser", p, commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
