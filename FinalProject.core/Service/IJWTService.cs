@@ -21,6 +21,7 @@ namespace FinalProject.core.Service
         void Rigesters(Rigester register);
 
         List<Comments> comments();
+        List<CommentNumcs> commentNumcs();
 
 
     }

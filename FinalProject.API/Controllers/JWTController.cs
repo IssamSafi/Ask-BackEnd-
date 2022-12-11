@@ -105,5 +105,12 @@ namespace FinalProject.API.Controllers
             return jwtservice.charts();
         }
 
+        [HttpGet]
+        [Route("CommentNum")]
+        public List<CommentNumcs> commentNumcs()
+        {
+            return jwtservice.commentNumcs();
+        }
+
     }
 }
