@@ -16,6 +16,7 @@ namespace FinalProject.core.Repository
 
         List<AllUserSearch> allUserSearches();
         List<Chart> charts();
+        List<CommentNumcs> commentNumcs();
 
         void Rigesters(Rigester register);
 

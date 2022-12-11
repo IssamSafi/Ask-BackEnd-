@@ -65,6 +65,11 @@ namespace FinalProject.infra.Service
             return _Repository.charts();
         }
 
+        public List<CommentNumcs> commentNumcs()
+        {
+            return _Repository.commentNumcs();
+        }
+
         public List<Comments> comments()
         {
             return _Repository.comments();
