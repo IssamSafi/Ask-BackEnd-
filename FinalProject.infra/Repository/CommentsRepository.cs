@@ -22,6 +22,8 @@ namespace FinalProject.infra.Repository
         {
             var p = new DynamicParameters();
             p.Add("Comnt", t.Commentt, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("User_id", t.Userid, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("ask_id", t.Askid, dbType: DbType.Int32, direction: ParameterDirection.Input);
             _dbContext.Connection.Execute("Comment_Package.CreateComment", p, commandType: CommandType.StoredProcedure);
 
         }

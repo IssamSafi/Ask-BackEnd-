@@ -20,6 +20,8 @@ namespace FinalProject.core.Service
         List<Chart> charts();
         void Rigesters(Rigester register);
 
+        List<Comments> comments();
+
 
     }
 }

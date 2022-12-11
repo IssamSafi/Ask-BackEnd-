@@ -42,6 +42,12 @@ namespace FinalProject.infra.Repository
             return result.ToList();
         }
 
+        public List<Comments> comments()
+        {
+            IEnumerable<Comments> result = _dbContext.Connection.Query<Comments>("User_Package.Comments", commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
+
         public List<Report> Reports()
         {
             IEnumerable<Report> result = _dbContext.Connection.Query<Report>("User_Package.Reportuser", commandType: CommandType.StoredProcedure);

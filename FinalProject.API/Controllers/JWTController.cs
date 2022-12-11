@@ -38,6 +38,14 @@ namespace FinalProject.API.Controllers
 
 
 
+        [HttpGet]
+        [Route("Comments")]
+
+        public List<Comments> comments()
+        {
+            return jwtservice.comments();
+        }
+
 
 
 
