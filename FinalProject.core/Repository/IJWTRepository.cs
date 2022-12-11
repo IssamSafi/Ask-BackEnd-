@@ -18,7 +18,9 @@ namespace FinalProject.core.Repository
         List<Chart> charts();
 
         void Rigesters(Rigester register);
-       
+
+        List<Comments> comments();
+
 
     }
 }
