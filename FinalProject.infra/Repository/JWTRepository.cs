@@ -65,6 +65,8 @@ namespace FinalProject.infra.Repository
             var p = new DynamicParameters();
             p.Add("firstname", register.Fname, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("lastname", register.Lname, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("phone_", register.Phone, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("Image", register.Image_Path, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("Email", register.User_Name, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("PASS ", register.Password, dbType: DbType.String, direction: ParameterDirection.Input);
             _dbContext.Connection.Execute("Login_Package.Rigister", p, commandType: CommandType.StoredProcedure);

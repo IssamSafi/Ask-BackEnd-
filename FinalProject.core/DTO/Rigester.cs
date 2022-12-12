@@ -10,5 +10,7 @@ namespace FinalProject.core.DTO
         public string Lname { get; set; }
         public string User_Name { get; set; }
         public string Password { get; set; }
+        public string Phone { get; set; }
+        public string Image_Path { get; set; }
     }
 }
