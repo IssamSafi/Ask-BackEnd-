@@ -55,6 +55,13 @@ namespace FinalProject.API.Controllers
             return jwtservice.Reports();
         }
 
+        [HttpGet]
+        [Route("newreport")]
+        public List<newReportdata> newreport()
+        {
+            return jwtservice.newreport();
+        }
+
 
         [HttpGet]
         [Route("Total")]

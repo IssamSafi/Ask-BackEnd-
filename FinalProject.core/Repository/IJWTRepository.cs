@@ -10,6 +10,7 @@ namespace FinalProject.core.Repository
     {
         Loginf Auth(Loginf login);
         List<Report> Reports();
+        List<newReportdata> newreport(); 
         List<TotalUser>  totalUser();
         List<Testmonial> testmonials();
         List<SearchUser> searchUsers(String search);

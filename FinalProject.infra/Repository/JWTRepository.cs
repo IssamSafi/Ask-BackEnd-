@@ -54,6 +54,12 @@ namespace FinalProject.infra.Repository
             return result.ToList();
         }
 
+        public List<newReportdata> newreport()
+        {
+            IEnumerable<newReportdata> result = _dbContext.Connection.Query<newReportdata>("User_Package.newreprtdata", commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
+
         public List<Report> Reports()
         {
             IEnumerable<Report> result = _dbContext.Connection.Query<Report>("User_Package.Reportuser", commandType: CommandType.StoredProcedure);

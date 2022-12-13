@@ -18,5 +18,7 @@ namespace FinalProject.core.DTO
         public DateTime? Askingdate { get; set; }
         public decimal? Category_Id { get; set; }
         public string Messege { get; set; }
+        public decimal commid { get; set; }
+        public string Commentt { get; set; }
     }
 }
