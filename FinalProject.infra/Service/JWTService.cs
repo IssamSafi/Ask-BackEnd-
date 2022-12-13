@@ -75,6 +75,11 @@ namespace FinalProject.infra.Service
             return _Repository.comments();
         }
 
+        public List<newReportdata> newreport()
+        {
+            return _Repository.newreport();
+        }
+
         public List<Report> Reports()
         {
            return _Repository.Reports();
