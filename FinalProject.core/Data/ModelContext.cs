@@ -80,9 +80,17 @@ namespace FinalProject.core.Data
                     .HasColumnType("NUMBER")
                     .HasColumnName("CATEGORY_ID");
 
+                entity.Property(e => e.Dislike)
+                    .HasColumnType("NUMBER")
+                    .HasColumnName("DISLIKE");
+
                 entity.Property(e => e.Itsapprove)
                     .HasColumnType("NUMBER")
                     .HasColumnName("ITSAPPROVE");
+
+                entity.Property(e => e.Likee)
+                    .HasColumnType("NUMBER")
+                    .HasColumnName("LIKEE");
 
                 entity.Property(e => e.Messege)
                     .HasMaxLength(200)
@@ -249,7 +257,8 @@ namespace FinalProject.core.Data
 
                 entity.Property(e => e.Role_Id)
                     .HasColumnType("NUMBER")
-                    .HasColumnName("ROLE_ID");
+                    .HasColumnName("ROLE_ID")
+                    .HasDefaultValueSql("2 ");
 
                 entity.Property(e => e.User_Id)
                     .HasColumnType("NUMBER")
