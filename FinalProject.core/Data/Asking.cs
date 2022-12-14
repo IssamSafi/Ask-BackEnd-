@@ -18,6 +18,8 @@ namespace FinalProject.core.Data
         public decimal? User_Id { get; set; }
         public DateTime? Askingdate { get; set; }
         public decimal? Category_Id { get; set; }
+        public decimal Likee { get; set; }
+        public decimal Dislike { get; set; }
 
         public virtual Categoryf Category { get; set; }
         public virtual Userf User { get; set; }

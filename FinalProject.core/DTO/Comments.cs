@@ -13,5 +13,6 @@ namespace FinalProject.core.DTO
         public string Image_Path { get; set; }
         public string Commentt { get; set; }
         public decimal Id { get; set; }
+        public decimal askid { get; set; }
     }
 }
