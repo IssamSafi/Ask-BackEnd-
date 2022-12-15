@@ -26,8 +26,9 @@ public void Create(Asking t)
            p.Add("Datee", DateTime.Now, dbType: DbType.Date, direction: ParameterDirection.Input);
             p.Add("CatID", t.Category_Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add(" userid", t.User_Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("like_", t.Likee, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add(" dislikee", t.Dislike, dbType: DbType.Int32, direction: ParameterDirection.Input);
 
-           
             _dbContext.Connection.Execute("Askig_Package.CreateAskig", p, commandType: CommandType.StoredProcedure);
 
         }
@@ -65,6 +66,8 @@ public void Create(Asking t)
             p.Add("Datee", t.Askingdate, dbType: DbType.Date, direction: ParameterDirection.Input);
             p.Add("CatID", t.Category_Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add(" userid", t.User_Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("like_", t.Likee, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add(" dislikee", t.Dislike, dbType: DbType.Int32, direction: ParameterDirection.Input);
 
 
             _dbContext.Connection.Execute("Askig_Package.UpdateAskig", p, commandType: CommandType.StoredProcedure);
