@@ -54,6 +54,12 @@ namespace FinalProject.infra.Repository
             return result.ToList();
         }
 
+        public List<LikeCount> likeCounts()
+        {
+            IEnumerable<LikeCount> result = _dbContext.Connection.Query<LikeCount>("Askig_Package.GetAllLikeCount", commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
+
         public List<newReportdata> newreport()
         {
             IEnumerable<newReportdata> result = _dbContext.Connection.Query<newReportdata>("User_Package.newreprtdata", commandType: CommandType.StoredProcedure);

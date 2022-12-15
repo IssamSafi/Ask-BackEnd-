@@ -21,11 +21,13 @@ namespace FinalProject.API.Controllers
 
         private readonly IService<Asking> _service;
         private readonly IService<Userf> _userservice;
+        private readonly IService<Likeanddislike> _likeservice;
 
-        public AskingController(IService<Asking> service, IService<Userf> userservice) : base(service)
+        public AskingController(IService<Asking> service, IService<Userf> userservice, IService<Likeanddislike> likeservice) : base(service)
         {
             _service = service;
             _userservice=userservice;
+            _likeservice = likeservice;
         }
 
         //[HttpGet]
@@ -107,6 +109,29 @@ namespace FinalProject.API.Controllers
             {
                 throw ex;
             }
+        }
+
+        [HttpPut]
+        [Route("UpdateLike")]
+        public void Update(Likeanddislike t)
+        {
+            _likeservice.Update(t);
+        }
+
+        [HttpGet]
+        [Route("GetLike")]
+        public List<Likeanddislike> GetAllLike()
+        {
+
+            return _likeservice.GetAll();
+
+        }
+
+        [HttpPost]
+        [Route("CreateLike")]
+        public void Create(Likeanddislike t)
+        {
+            _likeservice.Create(t);
         }
 
 

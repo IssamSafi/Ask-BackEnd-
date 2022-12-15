@@ -71,6 +71,7 @@ namespace FinalProject.API
 
 
             services.AddScoped<IRepository<Categoryf>, CategoryRepository>();
+            services.AddScoped<IRepository<Categoryf>, CategoryRepository>();
             services.AddScoped<IService<Categoryf>, CategoryService>();
             services.AddScoped<IRepository<Homef>, HomeRepository>();
             services.AddScoped<IService<Homef>, HomeService>();
@@ -84,6 +85,8 @@ namespace FinalProject.API
             services.AddScoped<IService<Testimonialf>, TestmonialService>();
             services.AddScoped<IRepository<Asking>, AskingRepository>();
             services.AddScoped<IService<Asking>, AskingService>();
+            services.AddScoped<IRepository<Likeanddislike>, AskingRepository>();
+            services.AddScoped<IService<Likeanddislike>, AskingService>();
             services.AddScoped<IRepository<CommonQuestion>, CommonQuestionRepository>();
             services.AddScoped<IService<CommonQuestion>, CommonQuestionService>();
 

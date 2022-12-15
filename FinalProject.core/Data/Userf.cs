@@ -11,6 +11,7 @@ namespace FinalProject.core.Data
         {
             Askings = new HashSet<Asking>();
             Comments = new HashSet<Comment>();
+            Likeanddislikes = new HashSet<Likeanddislike>();
             Loginfs = new HashSet<Loginf>();
             Testimonialves = new HashSet<Testimonialf>();
         }
@@ -24,6 +25,7 @@ namespace FinalProject.core.Data
 
         public virtual ICollection<Asking> Askings { get; set; }
         public virtual ICollection<Comment> Comments { get; set; }
+        public virtual ICollection<Likeanddislike> Likeanddislikes { get; set; }
         public virtual ICollection<Loginf> Loginfs { get; set; }
         public virtual ICollection<Testimonialf> Testimonialves { get; set; }
     }

@@ -75,6 +75,11 @@ namespace FinalProject.infra.Service
             return _Repository.comments();
         }
 
+        public List<LikeCount> likeCounts()
+        {
+            return _Repository.likeCounts();
+        }
+
         public List<newReportdata> newreport()
         {
             return _Repository.newreport();
