@@ -10,7 +10,7 @@ using System.Text;
 
 namespace FinalProject.infra.Repository
 {
-   public  class AskingRepository : IRepository<Asking>
+   public  class AskingRepository : IRepository<Asking>,IRepository<Likeanddislike>
     {
         private readonly IDbContext _dbContext;
         public AskingRepository(IDbContext dbContext)
@@ -30,6 +30,19 @@ public void Create(Asking t)
             p.Add(" dislikee", t.Dislike, dbType: DbType.Int32, direction: ParameterDirection.Input);
 
             _dbContext.Connection.Execute("Askig_Package.CreateAskig", p, commandType: CommandType.StoredProcedure);
+
+        }
+
+        public void Create(Likeanddislike t)
+        {
+            var p = new DynamicParameters();
+            p.Add("dislikee", t.Dislike, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("like_", t.Likee, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("userrid", t.Userid, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("AskigID", t.Askid, dbType: DbType.Int32, direction: ParameterDirection.Input);
+    
+
+            _dbContext.Connection.Execute("Askig_Package.CreateLikeAndDisLike", p, commandType: CommandType.StoredProcedure);
 
         }
 
@@ -71,6 +84,31 @@ public void Create(Asking t)
 
 
             _dbContext.Connection.Execute("Askig_Package.UpdateAskig", p, commandType: CommandType.StoredProcedure);
+        }
+
+        public void Update(Likeanddislike t)
+        {
+            var p = new DynamicParameters();
+            p.Add("LikeId", t.Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("dislikee", t.Dislike, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("like_", t.Likee, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("userrid", t.Userid, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("AskigID", t.Askid, dbType: DbType.Int32, direction: ParameterDirection.Input);
+
+
+            _dbContext.Connection.Execute("Askig_Package.UpdateLikeAndDisLike", p, commandType: CommandType.StoredProcedure);
+
+        }
+
+        List<Likeanddislike> IRepository<Likeanddislike>.GetAll()
+        {
+            IEnumerable<Likeanddislike> result = _dbContext.Connection.Query<Likeanddislike>("Askig_Package.GetAllLike", commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
+
+        Likeanddislike IRepository<Likeanddislike>.GetById(int id)
+        {
+            throw new NotImplementedException();
         }
     }
 }

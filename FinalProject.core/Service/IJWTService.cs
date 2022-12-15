@@ -23,6 +23,7 @@ namespace FinalProject.core.Service
 
         List<Comments> comments();
         List<CommentNumcs> commentNumcs();
+        List<LikeCount> likeCounts();
 
 
     }

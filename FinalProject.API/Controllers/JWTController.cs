@@ -119,5 +119,12 @@ namespace FinalProject.API.Controllers
             return jwtservice.commentNumcs();
         }
 
+        [HttpGet]
+        [Route("CountLike")]
+        public List<LikeCount> likeCounts()
+        {
+            return jwtservice.likeCounts();
+        }
+
     }
 }

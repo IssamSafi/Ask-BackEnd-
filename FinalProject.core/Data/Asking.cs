@@ -10,6 +10,7 @@ namespace FinalProject.core.Data
         public Asking()
         {
             Comments = new HashSet<Comment>();
+            Likeanddislikes = new HashSet<Likeanddislike>();
         }
 
         public decimal Id { get; set; }
@@ -24,5 +25,6 @@ namespace FinalProject.core.Data
         public virtual Categoryf Category { get; set; }
         public virtual Userf User { get; set; }
         public virtual ICollection<Comment> Comments { get; set; }
+        public virtual ICollection<Likeanddislike> Likeanddislikes { get; set; }
     }
 }

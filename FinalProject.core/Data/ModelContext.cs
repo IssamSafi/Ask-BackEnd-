@@ -24,6 +24,7 @@ namespace FinalProject.core.Data
         public virtual DbSet<CommonQuestion> CommonQuestions { get; set; }
         public virtual DbSet<Contactusf> Contactusfs { get; set; }
         public virtual DbSet<Homef> Homefs { get; set; }
+        public virtual DbSet<Likeanddislike> Likeanddislikes { get; set; }
         public virtual DbSet<Loginf> Loginfs { get; set; }
         public virtual DbSet<Rolef> Rolefs { get; set; }
         public virtual DbSet<Testimonialf> Testimonialves { get; set; }
@@ -239,6 +240,44 @@ namespace FinalProject.core.Data
                     .HasMaxLength(200)
                     .IsUnicode(false)
                     .HasColumnName("WELCOME_IAMGE");
+            });
+
+            modelBuilder.Entity<Likeanddislike>(entity =>
+            {
+                entity.ToTable("LIKEANDDISLIKE");
+
+                entity.Property(e => e.Id)
+                    .HasColumnType("NUMBER")
+                    .ValueGeneratedOnAdd()
+                    .HasColumnName("ID");
+
+                entity.Property(e => e.Askid)
+                    .HasColumnType("NUMBER")
+                    .HasColumnName("ASKID");
+
+                entity.Property(e => e.Dislike)
+                    .HasColumnType("NUMBER")
+                    .HasColumnName("DISLIKE");
+
+                entity.Property(e => e.Likee)
+                    .HasColumnType("NUMBER")
+                    .HasColumnName("LIKEE");
+
+                entity.Property(e => e.Userid)
+                    .HasColumnType("NUMBER")
+                    .HasColumnName("USERID");
+
+                entity.HasOne(d => d.Ask)
+                    .WithMany(p => p.Likeanddislikes)
+                    .HasForeignKey(d => d.Askid)
+                    .OnDelete(DeleteBehavior.SetNull)
+                    .HasConstraintName("SYS_C00311141");
+
+                entity.HasOne(d => d.User)
+                    .WithMany(p => p.Likeanddislikes)
+                    .HasForeignKey(d => d.Userid)
+                    .OnDelete(DeleteBehavior.Cascade)
+                    .HasConstraintName("SYS_C00311140");
             });
 
             modelBuilder.Entity<Loginf>(entity =>

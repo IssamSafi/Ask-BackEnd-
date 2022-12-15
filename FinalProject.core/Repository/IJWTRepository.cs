@@ -22,6 +22,7 @@ namespace FinalProject.core.Repository
         void Rigesters(Rigester register);
 
         List<Comments> comments();
+        List<LikeCount> likeCounts();
 
 
     }
